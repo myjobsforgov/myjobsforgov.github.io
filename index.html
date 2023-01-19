@@ -1,1 +1,834 @@
 
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8"/>
+    <title>myGov Home</title>
+    
+    <meta name="description" content="Access government services from one place."/>
+    <meta name="template" content="home-page-template"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+    
+    
+<link rel="myjobsforgov.github.io" href="https://my.gov.au/en"/>
+
+
+    
+<script> var serviceConfig = {"baseDomain":"https://apigw.my.gov.au/mygov/ext","logoutEndpoint":"https://my.gov.au/logout-callback","oidcAuthority":"https://login.my.gov.au","oidcRedirectUri":"https://my.gov.au/auth-callback","isAuthoringEnv":false,"client_id":"mygov-citizen-portal","routes":{"successfulLoginRedirect":"/en/myaccount/dashboard","homepageRedirect":"/en","invalidRequestsRedirect":"/error/500","serverErrorRedirect":"/error/500"},"metadata":{"issuer":"https://login.my.gov.au","jwks_uri":"https://login.my.gov.au/mga/sps/oauth/oauth20/jwks/MYGOV-OIDC-RS256","userinfo_endpoint":"https://login.my.gov.au/mga/sps/oauth/oauth20/userinfo","authorization_endpoint":"https://login.my.gov.au/mga/sps/oauth/oauth20/authorize","token_endpoint":"https://login.my.gov.au/mga/sps/oauth/oauth20/token","end_session_endpoint":"https://login.my.gov.au/mga/sps/authsvc/policy/slo"},"unauthenticatedRedirect":"https://my.gov.au","kickOffsIdentityLoginEndpoint":"https://login.my.gov.au/mga/sps/oidc/rp/MYGOV/kickoff/login","atoEndPoint":null,"myGovGreenUrl":null,"greenLoginPortal":false,"isOutage":false,"logoutRedirectEndpoint":"https://my.gov.au/logout-redirect","initAllowedIdleTimeMs":600000};</script>
+
+
+<script> var transitionModalConfig = {"header":"You're leaving myGov Beta","subHeading":"","body":"Select Continue to complete this task in your account.","ctaLabel":"Continue","closeLabel":"Cancel"};</script>
+
+
+
+    
+        <script>
+        	var MEMBER_SERVICES_LOGO_URLS = [{"member_service_id":"CLK","name":"Centrelink","logoUrl":"/content/dam/mygov/images/member-services/icons/Centrelink.svg"},{"member_service_id":"JOBS","name":"Workforce Australia","logoUrl":"/content/dam/mygov/images/member-services/icons/JobActive_40x40px.svg"},{"member_service_id":"ATO","name":"Australian Taxation Office","logoUrl":"/content/dam/mygov/images/member-services/icons/ATO@2x.png"},{"member_service_id":"MCA","name":"Medicare","logoUrl":"/content/dam/mygov/images/member-services/icons/Medicare@2x.png"}]
+        </script>
+        <script>
+        	var LINKED_SERVICES_LOGO_URLS = [{"service_id":"HOMEPAGE.CLK.SSO.URL","logoUrl":"/content/dam/mygov/images/member-services/icons/Centrelink.svg"},{"service_id":"HOMEPAGE.DESE.SSO.URL","logoUrl":"/content/dam/mygov/images/member-services/icons/JobActive_40x40px.svg"},{"service_id":"HOMEPAGE.ATO.SSO.URL","logoUrl":"/content/dam/mygov/images/member-services/icons/ATO@2x.png"},{"service_id":"HOMEPAGE.MCA.SSO.URL","logoUrl":"/content/dam/mygov/images/member-services/icons/Medicare@2x.png"}]
+        </script>
+        <script>
+        	var metadataLinkedServiceList = {"count":1,"metadata":[{"member_services":[{"member_service_id":"GOVPASSIDP","name":"Govpass IDP","supported_features":[{"feature_id":"profile.provider","status":"ACTIVE"}]},{"member_service_id":"DOH_AP","name":"Department of Health Applications Portal","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.DOH_AP.SSO.URL","name":"Department of Health Applications Portal","type":"SSO.URL","value":"https://sts.health.gov.au/mygov?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.DOH.UNLINK.URL","name":"Department of Health Applications Portal","type":"UNLINK.URL","value":"https://sts.health.gov.au/mygov/unlink?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dDOH"},{"endpoint_id":"HOMEPAGE.DOH.LINK.URL","name":"Department of Health Applications Portal","type":"LINK.URL","value":"https://sts.health.gov.au/mygov/link?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"}]},{"member_service_id":"VICSRO","name":"State Revenue Office Victoria","supported_features":[{"feature_id":"mygov.inbox","status":"ACTIVE"},{"feature_id":"front.chnl.linking","status":"ACTIVE"},{"feature_id":"tuo","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.VICSRO.UNLINK.URL","name":"State Revenue Office Victoria","type":"UNLINK.URL","value":"https://www.e-business.sro.vic.gov.au/eBusiness/mygov/unlink?return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dVICSRO"},{"endpoint_id":"HOMEPAGE.VICSRO.LINK.URL","name":"State Revenue Office Victoria","type":"LINK.URL","value":"https://www.e-business.sro.vic.gov.au/eBusiness/mygov/link?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.VICSRO.SSO.URL","name":"State Revenue Office Victoria","type":"SSO.URL","value":"https://www.e-business.sro.vic.gov.au/eBusiness/mygov/login?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"MCA","name":"Medicare","supported_features":[{"feature_id":"profile.required","status":"ACTIVE"},{"feature_id":"profile.provider","status":"ACTIVE"},{"feature_id":"tuo","status":"ACTIVE"},{"feature_id":"profile.sync","status":"ACTIVE"},{"feature_id":"mygov.inbox","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"IMMUNISATION.MCA.SSO.URL","name":"Immunisation","type":"SSO.URL","value":"https://www2.medicareaustralia.gov.au/moasso/sps/oidc/rp/moa/kickoff/mygov?target_link_uri=%2Fmoaonline%2F%23%2Fair%2Fimmunisationhistory&origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.MCA.UNLINK.URL","name":"Medicare","type":"UNLINK.URL","value":"https://www2.medicareaustralia.gov.au/moasso/sps/oidc/rp/moa/kickoff/mygovunlink?origin=MYGOV&iss=https://login.my.gov.au&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dMCA"},{"endpoint_id":"HOMEPAGE.MCA.LINK.URL","name":"Medicare","type":"LINK.URL","value":"https://www2.medicareaustralia.gov.au/moasso/sps/oidc/rp/moa/kickoff/mygov?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.MCA.SSO.URL","name":"Medicare","type":"SSO.URL","value":"https://www2.medicareaustralia.gov.au/moasso/sps/oidc/rp/moa/kickoff/mygov?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"LENS","name":"LENS","supported_features":[{"feature_id":"mygov.inbox","status":"ACTIVE"}]},{"member_service_id":"NCSR","name":"National Cancer Screening Register","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.NCSR.SSO.URL","name":"National Cancer Screening Register","type":"SSO.URL","value":"https://participant.ncsr.gov.au/NcsrParticipant/mygov/login?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.NCSR.LINK.URL","name":"National Cancer Screening Register","type":"LINK.URL","value":"https://login.my.gov.au/sso/sps/authsvc/policy/redirect?client_id=u3kAbhpiUjo74366u7Uf&action=link&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.NCSR.UNLINK.URL","name":"National Cancer Screening Register","type":"UNLINK.URL","value":"https://login.my.gov.au/sso/sps/authsvc/policy/redirect?client_id=u3kAbhpiUjo74366u7Uf&action=unlink&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dNCSR"}]},{"member_service_id":"AGED","name":"My Aged Care","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.AGED.UNLINK.URL","name":"My Aged Care","type":"UNLINK.URL","value":"https://sts.health.gov.au/myac/unlink?return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dAGED"},{"endpoint_id":"HOMEPAGE.AGED.LINK.URL","name":"My Aged Care","type":"LINK.URL","value":"https://sts.health.gov.au/myac/link?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.AGED.SSO.URL","name":"My Aged Care","type":"SSO.URL","value":"https://sts.health.gov.au/myac?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"DVA","name":"Department of Veterans' Affairs","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"},{"feature_id":"mygov.inbox","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.DVA.UNLINK.URL","name":"Department of Veterans' Affairs","type":"UNLINK.URL","value":"https://myservice.dva.gov.au/sso/sps/oidc/rp/veterans/kickoff/mygovunlink?action=unlinking&origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dDVA"},{"endpoint_id":"HOMEPAGE.DVA.SSO.URL","name":"Department of Veterans' Affairs","type":"SSO.URL","value":"https://myservice.dva.gov.au/sso/sps/oidc/rp/veterans/kickoff/mygov?action=idplogin&origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.DVA.LINK.URL","name":"Department of Veterans' Affairs","type":"LINK.URL","value":"https://myservice.dva.gov.au/sso/sps/oidc/rp/veterans/kickoff/mygov?action=linking&origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"}]},{"member_service_id":"IHI","name":"Individual Healthcare Identifiers service","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.IHI.SSO.URL","name":"Individual Healthcare Identifiers service","type":"SSO.URL","value":"https://ihis.servicesaustralia.gov.au/sso/sps/oidc/rp/ihi/kickoff/mygov?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.IHI.LINK.URL","name":"Individual Healthcare Identifiers service","type":"LINK.URL","value":"https://ihis.servicesaustralia.gov.au/sso/sps/oidc/rp/ihi/kickoff/mygov?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.IHI.UNLINK.URL","name":"Individual Healthcare Identifiers service","type":"UNLINK.URL","value":"https://ihis.servicesaustralia.gov.au/sso/sps/oidc/rp/ihi/kickoff/mygov?target_link_uri=/ihi/unlink&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dIHI"}]},{"member_service_id":"DCA","name":"National Disability Insurance Scheme (NDIS)","supported_features":[{"feature_id":"mygov.inbox","status":"ACTIVE"},{"feature_id":"front.chnl.linking","status":"ACTIVE"},{"feature_id":"tuo","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.DCA.UNLINK.URL","name":"National Disability Insurance Scheme (NDIS)","type":"UNLINK.URL","value":"https://myplace.ndis.gov.au/sso/sps/oidc/rp/ndia/kickoff/mygov?origin=MYGOV&target_link_uri=/ndis/unlink&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dDCA"},{"endpoint_id":"HOMEPAGE.DCA.LINK.URL","name":"National Disability Insurance Scheme (NDIS)","type":"LINK.URL","value":"https://myplace.ndis.gov.au/sso/sps/oidc/rp/ndia/kickoff/mygov?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.DCA.SSO.URL","name":"National Disability Insurance Scheme (NDIS)","type":"SSO.URL","value":"https://myplace.ndis.gov.au/sso/sps/oidc/rp/ndia/kickoff/mygov?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"ADMS","name":"Apprenticeships Data Management System","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"}]},{"member_service_id":"CSA","name":"Child Support","supported_features":[{"feature_id":"mygov.inbox","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.CSA.LINK.URL","name":"Child Support","type":"LINK.URL","value":"https://www.csaonline.gov.au/sso/sps/oidc/rp/childsupport/kickoff/mygov-sso?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.CSA.UNLINK.URL","name":"Child Support","type":"UNLINK.URL","value":"https://www.csaonline.gov.au/sso/sps/oidc/rp/childsupport/kickoff/mygov-unlink?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dCSA"},{"endpoint_id":"HOMEPAGE.CSA.SSO.URL","name":"Child Support","type":"SSO.URL","value":"https://www.csaonline.gov.au/sso/sps/oidc/rp/childsupport/kickoff/mygov-sso?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"EXCHGE","name":"myGov Identity Hub","supported_features":[{"feature_id":"identity.provider","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.EXCHGE.LINK.URL","name":"myGov Identity Hub","type":"LINK.URL","value":"https://login.my.gov.au/mga/sps/oidc/rp/MYGOV/kickoff/link?target_link_uri=/account"}]},{"member_service_id":"CLK","name":"Centrelink","supported_features":[{"feature_id":"profile.required","status":"ACTIVE"},{"feature_id":"mygov.inbox","status":"ACTIVE"},{"feature_id":"tuo","status":"ACTIVE"},{"feature_id":"profile.provider","status":"ACTIVE"},{"feature_id":"profile.sync","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"FAMILIES.CLK.SSO.URL","name":"Families","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/families&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"SENIORS.CLK.SSO.URL","name":"Seniors","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/seniors&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.CLK.UNLINK.URL","name":"Centrelink","type":"UNLINK.URL","value":"https://www.centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygovunlink?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dCLK"},{"endpoint_id":"STUDENTS.CLK.SSO.URL","name":"Students","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/students&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"DISABILITY.CLK.SSO.URL","name":"Disability","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/disabled-ill-injured&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.CLK.SSO.URL","name":"Centrelink","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"CRISIS.CLK.SSO.URL","name":"Crisis","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/crisis&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.CLK.LINK.URL","name":"Centrelink","type":"LINK.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"CARERS.CLK.SSO.URL","name":"Carers","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/carers&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"JOBSEEKER.CLK.SSO.URL","name":"JobSeeker Payment","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/looking-for-work&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"OTHER.CLK.SSO.URL","name":"Other","type":"SSO.URL","value":"https://centrelink.gov.au/sso/sps/oidc/rp/clkcust/kickoff/mygov?origin=MYGOV&Target=/apps/custonline_entry/online-claims/make-a-claim/life-event-details/other&return_uri=https://my.gov.au/en/myaccount/dashboard"}]},{"member_service_id":"VIC_DHHS","name":"HousingVic Online Services","supported_features":[{"feature_id":"mygov.inbox","status":"ACTIVE"},{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.VIC_DHHS.SSO.URL","name":"HousingVic Online Services","type":"SSO.URL","value":"https://login.my.gov.au/sso/sps/mygovsaml/saml20/logininitial?RequestBinding=HTTPPost&PartnerId=https://uat.housingapplication.vic.gov.au&Target=Origin=MYGOV%26Return=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.VIC_DHHS.LINK.URL","name":"HousingVic Online Services","type":"LINK.URL","value":"https://services.housing.vic.gov.au/saml/ls&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.VIC_DHHS.UNLINK.URL","name":"HousingVic Online Services","type":"UNLINK.URL","value":"https://login.my.gov.au/sso/sps/authsvc/policy/redirect?action=samlunlink&partner=https://uat.housingapplication.vic.gov.au&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dVIC_DHHS"}]},{"member_service_id":"MGV-ENHANCE","name":"myGov Enhancement Portal"},{"member_service_id":"REDR","name":"National Redress Scheme","supported_features":[{"feature_id":"front.chnl.linking","status":"ACTIVE"},{"feature_id":"mygov.inbox","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.REDR.SSO.URL","name":"National Redress Scheme","type":"SSO.URL","value":"https://apply.nationalredress.gov.au/sso/sps/oidc/rp/redress/kickoff/mygov?action=idplogin&origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.REDR.LINK.URL","name":"National Redress Scheme","type":"LINK.URL","value":"https://apply.nationalredress.gov.au/sso/sps/oidc/rp/redress/kickoff/mygov?action=linking&origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.REDR.UNLINK.URL","name":"National Redress Scheme","type":"UNLINK.URL","value":"https://apply.nationalredress.gov.au/sso/sps/oidc/rp/redress/kickoff/mygovunlink?action=unlink&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dREDR"}]},{"member_service_id":"ATO","name":"Australian Taxation Office","supported_features":[{"feature_id":"profile.required","status":"ACTIVE"},{"feature_id":"profile.provider","status":"ACTIVE"},{"feature_id":"mygov.inbox","status":"ACTIVE"},{"feature_id":"tuo","status":"ACTIVE"},{"feature_id":"profile.sync","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.ATO.SSO.URL","name":"Australian Taxation Office","type":"SSO.URL","value":"https://onlineservices.ato.gov.au/?identityprovider=mygovid_beta&origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.ATO.LINK.URL","name":"Australian Taxation Office","type":"LINK.URL","value":"https://onlineservices.ato.gov.au/?identityprovider=mygovid_beta&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"},{"endpoint_id":"HOMEPAGE.ATO.UNLINK.URL","name":"Australian Taxation Office","type":"UNLINK.URL","value":"https://login.my.gov.au/sso/sps/oidc/rp/ato/kickoff/unlink?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dATO"}]},{"member_service_id":"EHR","name":"My Health Record","supported_features":[{"feature_id":"tuo","status":"ACTIVE"},{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.PCEHR.UNLINK.URL","name":"My Health Record","type":"UNLINK.URL","value":"https://myrecord.ehealth.gov.au/unlinkmhr?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dEHR"},{"endpoint_id":"HOMEPAGE.PCEHR.SSO.URL","name":"My Health Record","type":"SSO.URL","value":"https://myrecord.ehealth.gov.au/portal?origin=MYGOV&return_uri=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.PCEHR.LINK.URL","name":"My Health Record","type":"LINK.URL","value":"https://myrecord.ehealth.gov.au/portal?origin=MYGOV&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services"}]},{"member_service_id":"JOBS","name":"Workforce Australia","supported_features":[{"feature_id":"tuo","status":"ACTIVE"},{"feature_id":"front.chnl.linking","status":"ACTIVE"}],"supported_endpoints":[{"endpoint_id":"HOMEPAGE.JOBS.UNLINK.URL","name":"Workforce Australia","type":"UNLINK.URL","value":"https://login.my.gov.au/sso/sps/authsvc/policy/redirect?action=samlunlink&partner=http://auth.dis.gov.au/adfs/services/trust&return_uri=https%3a%2f%2fmy.gov.au%2fen%2fmyaccount%2fprofile%2flinked-services%23%2fmember-services%3fACTION%3dUNLINK%26AGENCY%3dJOBS"},{"endpoint_id":"HOMEPAGE.JOBS.SSO.URL","name":"Workforce Australia","type":"SSO.URL","value":"https://login.my.gov.au/sso/sps/mygovsaml/saml20/logininitial?RequestBinding=HTTPPost&PartnerId=http://auth.dis.gov.au/adfs/services/trust&Target=RPID%3Dhttp%253A%252F%252Fjobsearch.gov.au%252F&Origin=MYGOV%26Return=https://my.gov.au/en/myaccount/dashboard"},{"endpoint_id":"HOMEPAGE.JOBS.LINK.URL","name":"Workforce Australia","type":"LINK.URL","value":"https://www.workforceaustralia.gov.au/individuals/sign-in"}]}]}]}
+
+        </script>
+        <script>
+        	var singleLogOutModal = {"preparingModalHeader":"Preparing to sign you out.","sloModalHeader":"Sign out of myGov","sloModalDescription":"<p>We'll also sign you out of:</p>\r\n<p>%services%</p>\r\n<p>Please make sure you've saved any changes before you sign out. Unsaved changes may be lost.</p>\r\n","signOutCTALabel":"Sign out","cancelCTALabel":"Cancel"}
+        </script>
+    
+
+
+
+    
+
+
+
+
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/servicesaustralia/clientlibs/clientlib-base.min.css" type="text/css">
+
+
+
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/servicesaustralia/clientlibs/clientlib-grid.min.css" type="text/css">
+
+
+
+
+
+
+<base id="baseHref" href="/en" data-repo-path="/content/mygov/en"/>
+
+
+
+
+    
+<script src="/etc.clientlibs/servicesaustralia/clientlibs/redirect.min.js"></script>
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="myGov Home"/>
+<meta property="og:description" content="Access government services from one place."/>
+<meta property="og:url" content="https://my.gov.au:443/content/mygov/en.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="myGov"/>
+<meta property="og:image" content="https://my.gov.au:443/etc.clientlibs/servicesaustralia-fed/clientlibs/imported/resources/aus-gov-stacked-white.svg"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width" name="MobileOptimized"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+
+
+
+
+    
+        <meta name="apple-itunes-app" content="app-id=938033081"/>
+    
+    
+    <meta name="smartbanner:title" content="myGov app"/>
+    <meta name="smartbanner:author" content="&amp;#8203;"/>
+    <meta name="smartbanner:price" content="&amp;#8203;"/>
+    <meta name="smartbanner:price-suffix-apple" content="Download and use the app"/>
+    <meta name="smartbanner:price-suffix-google" content="Download and use the app"/>
+    <meta name="smartbanner:icon-apple" content="/content/dam/mygov/icons/appLogo.png"/>
+    <meta name="smartbanner:icon-google" content="/content/dam/mygov/icons/appLogo.png"/>
+    <meta name="smartbanner:button" content="View"/>
+    <meta name="smartbanner:button-url-apple" content="https://apps.apple.com/au/app/id938033081"/>
+    <meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=au.gov.mygov.mygovapp"/>
+    <meta name="smartbanner:enabled-platforms" content="android,ios"/>
+    <meta name="smartbanner:close-label" content="Close"/>
+    <meta name="smartbanner:exclude-user-agent-regex" content="((iPhone|iPad|iPod).+Version.+Safari|myGovApp)"/>
+
+  
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700%7CRoboto:300,400,500,700,900&display=swap" rel="stylesheet"/>
+
+
+
+
+
+    
+    
+        <script>
+            window['GoogleAnalyticsObject'] = 'ga';
+            window['ga'] = window['ga'] || function() {
+                (window['ga'].q = window['ga'].q || []).push(arguments)
+            };
+        </script>
+        <script>
+            var dataLayer = dataLayer || [];
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+
+            {'gtm.start': new Date().getTime(),event:'gtm.js'}
+            );var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-ML9T8D2');
+        </script>
+    
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/content/dam/mygov/images/brand/icons/icon-180x180.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="152x152" href="/content/dam/mygov/images/brand/icons/icon-152x152.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="144x144" href="/content/dam/mygov/images/brand/icons/icon-144x144.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="120x120" href="/content/dam/mygov/images/brand/icons/icon-120x120.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="/content/dam/mygov/images/brand/icons/icon-114x114.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="/content/dam/mygov/images/brand/icons/icon-76x76.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="/content/dam/mygov/images/brand/icons/icon-72x72.png" type="image/png"/>
+<link rel="apple-touch-icon" sizes="60x60" href="/content/dam/mygov/images/brand/icons/icon-60x60.png" type="image/png"/>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/content/dam/mygov/images/brand/icons/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/content/dam/mygov/images/brand/icons/favicon-16x16.png"/>
+
+
+
+
+    
+    
+    
+
+    
+
+    
+
+
+        <script type="text/javascript" src="/etc/clientlibs/dtm-reactor/ENa69e9337c93f4637bb73b8b41a20e64d/6e780ef169d7/db51359f8b2c/launch-3792184e5e46.min.js" async></script>
+
+
+    
+    
+    <link rel="stylesheet" href="/etc.clientlibs/servicesaustralia-fed/clientlibs/imported.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/mygov-fed/clientlibs/styles.min.css" type="text/css">
+
+
+    
+    
+    <script async src="/etc.clientlibs/core/wcm/components/commons/datalayer/v1/clientlibs/core.wcm.components.commons.datalayer.v1.min.js"></script>
+
+
+
+    
+    
+</head>
+    <body class="home-page base-page page basicpage page-mygov-home" id="home-page-eb155fb9b6" data-cmp-link-accessibility-enabled data-cmp-link-accessibility-text="opens in a new tab" data-cmp-data-layer-enabled>
+        <script>
+          window.adobeDataLayer = window.adobeDataLayer || [];
+          adobeDataLayer.push({
+              page: JSON.parse("{\x22home\u002Dpage\u002Deb155fb9b6\x22:{\x22@type\x22:\x22servicesaustralia\/components\/structure\/page\/home\u002Dpage\x22,\x22repo:modifyDate\x22:\x222022\u002D12\u002D12T21:00:00Z\x22,\x22dc:title\x22:\x22myGov Home\x22,\x22dc:description\x22:\x22Access government services from one place.\x22,\x22xdm:template\x22:\x22\/conf\/ServicesAustraliaTemplates\/settings\/wcm\/templates\/home\u002Dpage\u002Dtemplate\x22,\x22xdm:language\x22:\x22en\x22,\x22xdm:tags\x22:[],\x22repo:path\x22:\x22\/content\/mygov\/en.html\x22}}"),
+              event:'cmp:show',
+              eventInfo: {
+                  path: 'page.home\u002Dpage\u002Deb155fb9b6'
+              }
+          });
+        </script>
+        
+        
+            
+
+<div class="cmp-page__skiptomaincontent">
+    <a class="cmp-page__skiptomaincontent-link" href="#main">Skip to main content</a>
+</div>
+
+    <link rel="stylesheet" href="/etc.clientlibs/core/wcm/components/page/v2/page/clientlibs/site/skiptomaincontent.min.css" type="text/css">
+
+
+
+            
+
+    
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML9T8D2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+    
+	
+
+<div class="root container responsivegrid">
+
+    
+    <div id="container-e65caf9786" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="global-banners aem-GridColumn aem-GridColumn--default--12"><div data-component="rc-global-banners" data-props='{&#34;messages&#34;:[],&#34;dismissLabel&#34;:&#34;Dismiss&#34;}'>
+</div>
+
+    
+</div>
+<div class="greennotificationbanner aem-GridColumn aem-GridColumn--default--12">
+
+
+
+    
+
+
+
+</div>
+<div class="header aem-GridColumn aem-GridColumn--default--12"><header data-section="top_nav" class="cmp-custom-header">
+    <div class="cmp-custom-header__content">
+        <div class="cmp-custom-header__logo-container">
+            <a href="/en">
+                <img src="/content/dam/mygov/images/brand/logos/myGov-logo-black.svg" alt="Australian Government and myGov logo" id="mobile-logo"/>
+                <img src="/content/dam/mygov/images/brand/logos/myGov-logo-cobranded-black.svg" alt="Australian Government and myGov logo" id="desktop-logo"/>
+            </a>
+        </div>
+        <div class="cmp-custom-header__link-container">
+            <div class="cmp-custom-header__link-container-upper">
+                <ul class="cmp-custom-header__list-upper">
+                    <li>
+                        <div data-component="rc-auth-aware-link" data-props="{&#34;dataUrl&#34;:&#34;&#34;,&#34;resources&#34;:{&#34;authenticatedLink&#34;:{&#34;icon&#34;:&#34;&#34;,&#34;label&#34;:&#34;Home&#34;,&#34;link&#34;:&#34;/content/mygov/en/myaccount/dashboard&#34;,&#34;openInNewtab&#34;:false},&#34;unauthenticatedLink&#34;:{&#34;icon&#34;:&#34;&#34;,&#34;label&#34;:&#34;Home&#34;,&#34;link&#34;:&#34;/content/mygov/en&#34;,&#34;openInNewtab&#34;:false},&#34;enabledInAuthenticatedSpace&#34;:true,&#34;enabledInUnauthenticatedSpace&#34;:true,&#34;cssClasses&#34;:&#34;cmp-custom-header__list-upper-active&#34;,&#34;isCreateAccountButton&#34;:false}}"></div>
+                    </li>
+                    <li>
+                        <a href="/en/services"><span>Browse</span></a>
+                    </li>
+                    <li>
+                        <a class="search-link" href="/en/search"><span>Search</span></a>
+                    </li>
+                </ul>
+                <div class="cmp-custom-header__menu-container">
+                    <button class="cmp-custom-header__menu-container__btn">
+                        <span class="cmp-custom-header__menu-container__label" data-open-label="Menu" data-closed-label="Close">Menu</span>
+                    </button>
+                </div>
+                <div><div class="sign-in-wrapper" data-component="rc-login-header" data-props="{&#34;navMenu&#34;:{&#34;items&#34;:[{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-profile.svg&#34;,&#34;title&#34;:&#34;Profile&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/profile/personal-details&#34;,&#34;active&#34;:false},{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-inbox.svg&#34;,&#34;title&#34;:&#34;Inbox&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/inbox&#34;,&#34;active&#34;:false},{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-tasks.svg&#34;,&#34;title&#34;:&#34;Tasks&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/tasks&#34;,&#34;active&#34;:false},{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-payments-and-claims.svg&#34;,&#34;title&#34;:&#34;Payments and claims&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/payments-claims/payments&#34;,&#34;active&#34;:false},{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-linked-services.svg&#34;,&#34;title&#34;:&#34;Linked services&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/profile/linked-services&#34;,&#34;active&#34;:false},{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-settings.svg&#34;,&#34;title&#34;:&#34;Account settings&#34;,&#34;href&#34;:&#34;/content/mygov/en/myaccount/settings/sign-in-settings&#34;,&#34;active&#34;:false}],&#34;logout&#34;:{&#34;icon&#34;:&#34;/content/dam/mygov/icons/small/ico-sign-out.svg&#34;,&#34;title&#34;:&#34;Sign out&#34;,&#34;href&#34;:&#34;/content/mygov/en&#34;}},&#34;loginUrl&#34;:&#34;/content/mygov/en/myaccount/dashboard.html&#34;,&#34;accountLabel&#34;:&#34;My account&#34;,&#34;signInLabel&#34;:&#34;Sign in&#34;,&#34;modal&#34;:{&#34;heading&#34;:&#34;Time out&#34;,&#34;body&#34;:&#34;&lt;p>You&#39;ve been on this page for at least 10 minutes.&lt;/p>\r\n&lt;p>For your security, we&#39;ll sign you out of myGov in &lt;b>5 minutes.&lt;/b>&lt;/p>\r\n&#34;,&#34;closeCta&#34;:&#34;Sign out&#34;,&#34;continueCta&#34;:&#34;Stay signed in&#34;,&#34;continueLongerCta&#34;:&#34;&#34;,&#34;idleWarningPeriodMs&#34;:300000,&#34;shortExtensionTimeMs&#34;:600000,&#34;longExtensionTimeMs&#34;:1500000}}">
+</div></div>
+            </div>
+            <div class="cmp-custom-header__link-container-lower">
+                <ul class="cmp-custom-header__list-lower">
+                    <li>
+                        <div data-component="rc-auth-aware-link" data-props="{&#34;dataUrl&#34;:&#34;&#34;,&#34;resources&#34;:{&#34;authenticatedLink&#34;:{&#34;icon&#34;:&#34;&#34;,&#34;label&#34;:&#34;&#34;,&#34;link&#34;:&#34;&#34;,&#34;openInNewtab&#34;:false},&#34;unauthenticatedLink&#34;:{&#34;icon&#34;:&#34;&#34;,&#34;label&#34;:&#34;Create account&#34;,&#34;link&#34;:&#34;/en/create-account&#34;,&#34;openInNewtab&#34;:false},&#34;enabledInAuthenticatedSpace&#34;:false,&#34;enabledInUnauthenticatedSpace&#34;:true,&#34;cssClasses&#34;:&#34;&#34;,&#34;isCreateAccountButton&#34;:true}}"></div>
+                    </li>
+                    
+                        <li>
+                            <a href="/en/about/help">Help</a>
+                        </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div data-component="rc-toasts"></div>
+</header>
+
+
+
+<div>
+<div data-component="rc-menu" data-props="{&#34;navItems&#34;:{&#34;signIn&#34;:{&#34;label&#34;:&#34;Sign in&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/dashboard&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-sign-in.svg&#34;,&#34;active&#34;:false},&#34;signOut&#34;:{&#34;label&#34;:&#34;Sign out&#34;,&#34;path&#34;:&#34;/content/mygov/en&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-sign-out.svg&#34;,&#34;active&#34;:true},&#34;createAccount&#34;:{&#34;label&#34;:&#34;Create account&#34;,&#34;path&#34;:&#34;/en/create-account&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/profile-summary-icons/ico-tile-profile.svg&#34;,&#34;active&#34;:false},&#34;home&#34;:{&#34;label&#34;:&#34;Home&#34;,&#34;path&#34;:&#34;/content/mygov/en&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-home.svg&#34;,&#34;active&#34;:true},&#34;authLinks&#34;:[{&#34;label&#34;:&#34;Profile&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/profile/personal-details&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-profile.svg&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Inbox&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/inbox&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-inbox.svg&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Tasks&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/tasks&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-tasks.svg&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Payments and claims&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/payments-claims/payments&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-payments-and-claims.svg&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Linked services&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/profile/linked-services&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-linked-services.svg&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Account settings&#34;,&#34;path&#34;:&#34;/content/mygov/en/myaccount/settings/sign-in-settings&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-settings.svg&#34;,&#34;active&#34;:false}],&#34;servicesLinks&#34;:{&#34;label&#34;:&#34;Browse&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-browse.svg&#34;,&#34;links&#34;:[{&#34;label&#34;:&#34;Raising kids&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/raising-kids&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Living arrangements&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/living-arrangements&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Ageing&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/ageing&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Work&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/work&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Education&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/education&#34;,&#34;active&#34;:false},{&#34;label&#34;:&#34;Health and disability&#34;,&#34;path&#34;:&#34;/content/mygov/en/services/health-and-disability&#34;,&#34;active&#34;:false}]},&#34;languages&#34;:{&#34;label&#34;:&#34;&#34;,&#34;iconPath&#34;:&#34;&#34;,&#34;links&#34;:[]},&#34;search&#34;:{&#34;label&#34;:&#34;Search&#34;,&#34;path&#34;:&#34;/content/mygov/en/search&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-search.svg&#34;,&#34;active&#34;:false},&#34;accountSettings&#34;:{&#34;active&#34;:false},&#34;helpAndSupport&#34;:{&#34;label&#34;:&#34;Help&#34;,&#34;path&#34;:&#34;/content/mygov/en/about/help&#34;,&#34;iconPath&#34;:&#34;/content/dam/mygov/icons/small/ico-help.svg&#34;,&#34;active&#34;:false}}}"></div></div>
+</div>
+<div class="page-taxonomy aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-data-layer="{&#34;page-taxonomy-731eb2efd7&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/structure/page-taxonomy&#34;}}">
+</div>
+</div>
+<div class="main-container container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+    
+    <main id="main" class="cmp-container root responsivegrid" role="main" data-section="content">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 aem-Grid--xxs--12 aem-Grid--s--12 aem-Grid--xl--12 aem-Grid--xs--12 aem-Grid--l--12 aem-Grid--m--12 ">
+    
+    <div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+<div id="experiencefragment-f59bf6b130" class="cmp-experiencefragment cmp-experiencefragment--digital-assistant">
+<div class="container">
+    <div class="root container responsivegrid">
+
+    
+    <div id="container-5adf811a02" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="digital-assistant aem-GridColumn aem-GridColumn--default--12"><div data-component="rc-digital-assistant" data-props="{&#34;title&#34;:&#34;Assistant&#34;,&#34;assistantIconPath&#34;:null,&#34;crossIcon&#34;:null,&#34;minimizeIcon&#34;:null,&#34;daUrl&#34;:&#34;https://login.my.gov.au/mga/sps/apiauthsvc/policy/virtualassistant&#34;,&#34;enabled&#34;:false}">
+</div>
+
+    
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+</div>
+
+</div>
+
+    
+</div>
+<div class="page-title title aem-GridColumn--xxs--none aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--xxs--10 aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--xs--none aem-GridColumn--offset--default--2 aem-GridColumn--s--10 aem-GridColumn--l--8 aem-GridColumn--offset--l--2 aem-GridColumn--offset--xxs--1 aem-GridColumn--s--none aem-GridColumn--offset--xl--2 aem-GridColumn--l--none aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--m--none aem-GridColumn--offset--s--1"><div data-cmp-data-layer="{&#34;page-title-ce43f0977f&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/structure/page-title&#34;,&#34;repo:modifyDate&#34;:&#34;2022-12-02T02:23:29Z&#34;,&#34;dc:title&#34;:&#34;myGov&#34;}}" id="page-title-ce43f0977f" class="cmp-title">
+	<h1 class="sr-only">myGov</h1>
+	
+</div>
+
+    
+
+</div>
+<div class="page-intro aem-GridColumn--xxs--none aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--xxs--10 aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--xs--none aem-GridColumn--offset--default--2 aem-GridColumn--s--10 aem-GridColumn--l--8 aem-GridColumn--offset--l--2 aem-GridColumn--offset--xxs--1 aem-GridColumn--s--none aem-GridColumn--offset--xl--2 aem-GridColumn--l--none aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--m--none aem-GridColumn--offset--s--1"><div class="cmp-custom-intro">
+    <p class="cmp-custom-intro__title">
+        We&#39;re here to help 
+    </p>
+    <p class="cmp-custom-intro__subtitle">
+         Access government services from one place.
+    </p>
+</div>
+
+    
+
+
+
+</div>
+<div class="container responsivegrid aem-GridColumn--xxs--none aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--xxs--10 aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--xs--none aem-GridColumn--offset--default--2 aem-GridColumn--s--10 aem-GridColumn--l--8 aem-GridColumn--offset--l--2 aem-GridColumn--offset--xxs--1 aem-GridColumn--s--none aem-GridColumn--offset--xl--2 aem-GridColumn--l--none aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--m--none aem-GridColumn--offset--s--1">
+
+    
+    <div id="container-cc4cf48ad7" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--8 aem-Grid--xxs--10 aem-Grid--default--8 aem-Grid--s--10 aem-Grid--xl--8 aem-Grid--xs--10 aem-Grid--l--8 aem-Grid--m--10 ">
+    
+    <div class="sign-in-teaser teaser aem-GridColumn--xxs--10 aem-GridColumn aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--s--10 aem-GridColumn--l--8"><div class="cmp-sign-in-teaser">
+    
+<div id="experiencefragment-e4b958b9b9" class="cmp-experiencefragment cmp-experiencefragment--authentication">
+<div class="container">
+    <div class="root container responsivegrid">
+
+    
+    <div id="container-1e6925bd72" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="title aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-data-layer="{&#34;title-a93e8e666c&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/core/title&#34;,&#34;repo:modifyDate&#34;:&#34;2022-04-28T04:45:52Z&#34;,&#34;dc:title&#34;:&#34;Sign in&#34;}}" id="title-a93e8e666c" class="cmp-title">
+    <h2 class="cmp-title__text">Sign in</h2>
+</div>
+
+    
+
+</div>
+<div class="text l-container aem-GridColumn aem-GridColumn--default--12">
+
+
+    
+
+</div>
+<div class="button-link aem-GridColumn aem-GridColumn--default--12"><div class="cmp-btn-link">
+    
+<a id="button-9243f79db5" class="cmp-button" aria-label="Click here to sign in" data-cmp-clickable data-cmp-data-layer="{&#34;button-9243f79db5&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/core/button&#34;,&#34;repo:modifyDate&#34;:&#34;2022-09-02T02:55:38Z&#34;,&#34;dc:title&#34;:&#34;Sign in&#34;,&#34;xdm:linkURL&#34;:&#34;/en/myaccount/dashboard&#34;}}" href="/en/myaccount/dashboard">
+    
+    
+
+    <span class="cmp-button__text">Sign in</span>
+</a>
+
+    <span class="cmp-btn-link__conjunction">or</span>
+    
+    <a class="cmp-link" href="/content/mygov/en/create-account">Create account</a>
+</div>
+
+    
+</div>
+<div class="separator aem-GridColumn aem-GridColumn--default--12">
+<div id="separator-e441648075" class="cmp-separator">
+    <hr class="cmp-separator__horizontal-rule"/>
+</div></div>
+<div class="text l-container aem-GridColumn aem-GridColumn--default--12">
+<div data-cmp-data-layer="{&#34;text-f1f50e59f7&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/text&#34;,&#34;repo:modifyDate&#34;:&#34;2022-08-29T02:31:00Z&#34;,&#34;xdm:text&#34;:&#34;&lt;p>If you already have a myGov account, you don&#39;t need to create a new one.&lt;/p>\r\n&#34;}}" id="text-f1f50e59f7" class="cmp-text">
+    <p>If you already have a myGov account, you don't need to create a new one.</p>
+
+</div>
+
+    
+
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+</div>
+
+</div>
+
+    
+
+    <div id="sign-in-teaser-e4b958b9b9" class="cmp-feature-teaser" data-cmp-data-layer="{&#34;sign-in-teaser-e4b958b9b9&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/sign-in-teaser&#34;,&#34;repo:modifyDate&#34;:&#34;2022-12-08T04:03:11Z&#34;,&#34;dc:title&#34;:&#34;Find support&#34;,&#34;dc:description&#34;:&#34;&lt;p>Explore what help is available to support you through different stages of your life.&lt;/p>\r\n&#34;,&#34;xdm:linkURL&#34;:&#34;/en/services&#34;}}">
+        
+<div data-cmp-src="/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82{.width}.jpeg/1670472191328/mother-with-school-age-child.jpeg" data-asset-id="199d15a5-38e4-47c7-b5be-f4f6dbd559e7" id="image-e4b958b9b9" data-cmp-data-layer="{&#34;image-e4b958b9b9&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/image&#34;,&#34;repo:modifyDate&#34;:&#34;2022-12-08T04:03:11Z&#34;,&#34;dc:title&#34;:&#34;Mother with school age child&#34;,&#34;image&#34;:{&#34;repo:id&#34;:&#34;199d15a5-38e4-47c7-b5be-f4f6dbd559e7&#34;,&#34;repo:modifyDate&#34;:&#34;2022-12-08T04:00:42Z&#34;,&#34;@type&#34;:&#34;image/jpeg&#34;,&#34;repo:path&#34;:&#34;/content/dam/mygov/images/hub/mother with school age child.jpg&#34;}}}" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.jpeg/1670472191328/mother-with-school-age-child.jpeg" srcset="/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.359.jpeg/1670472191328/mother-with-school-age-child.jpeg 359w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.480.jpeg/1670472191328/mother-with-school-age-child.jpeg 480w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.640.jpeg/1670472191328/mother-with-school-age-child.jpeg 640w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.768.jpeg/1670472191328/mother-with-school-age-child.jpeg 768w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.1024.jpeg/1670472191328/mother-with-school-age-child.jpeg 1024w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.1244.jpeg/1670472191328/mother-with-school-age-child.jpeg 1244w,/en/_jcr_content/root/main-container/white-container/sign_in_teaser.coreimg.82.1360.jpeg/1670472191328/mother-with-school-age-child.jpeg 1360w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1200" height="793" alt="Mother with child in school uniform" title="Mother with school age child"/>
+    
+    
+    <meta itemprop="caption" content="Mother with school age child"/>
+</div>
+
+    
+
+
+        <div class="cmp-feature-teaser__info">
+            
+    
+
+            
+    <h2 class="cmp-feature-teaser__info__title">Find support</h2>
+
+            
+    <div class="cmp-feature-teaser__info__description">
+        <p>Explore what help is available to support you through different stages of your life.</p>
+
+    </div>
+
+            
+    <div class="cmp-feature-teaser__action-container">
+        
+    <a class="cmp-feature-teaser__action-link" href="/en/services" id="sign-in-teaser-e4b958b9b9-cta-7e69f35d4b" data-cmp-data-layer="{&#34;sign-in-teaser-e4b958b9b9-cta-7e69f35d4b&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/sign-in-teaser/cta&#34;,&#34;dc:title&#34;:&#34;Explore &#34;,&#34;xdm:linkURL&#34;:&#34;/en/services&#34;}}" data-cmp-clickable>Explore </a>
+
+    </div>
+
+        </div>
+    </div>
+</div>
+
+    
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+<div class="container responsivegrid blue-grey-bg aem-GridColumn aem-GridColumn--default--12">
+
+    
+    <div id="container-9eb8b15df9" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 aem-Grid--xxs--12 aem-Grid--s--12 aem-Grid--xl--12 aem-Grid--xs--12 aem-Grid--l--12 aem-Grid--m--12 ">
+    
+    <div class="container responsivegrid aem-GridColumn--xxs--none aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--xxs--10 aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--xs--none aem-GridColumn--offset--default--2 aem-GridColumn--s--10 aem-GridColumn--l--8 aem-GridColumn--offset--l--2 aem-GridColumn--offset--xxs--1 aem-GridColumn--s--none aem-GridColumn--offset--xl--2 aem-GridColumn--l--none aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--m--none aem-GridColumn--offset--s--1">
+
+    
+    <div id="container-3c0ec2fda4" class="cmp-container root responsivegrid">
+        
+
+
+<div class="aem-Grid aem-Grid--8 aem-Grid--xxs--10 aem-Grid--default--8 aem-Grid--s--10 aem-Grid--xl--8 aem-Grid--xs--10 aem-Grid--l--8 aem-Grid--m--10 ">
+    
+    <div class="card-list aem-GridColumn--xxs--10 aem-GridColumn aem-GridColumn--xl--8 aem-GridColumn--m--10 aem-GridColumn--default--8 aem-GridColumn--xs--10 aem-GridColumn--s--10 aem-GridColumn--l--8"><div data-cmp-data-layer="{&#34;card-list-0a367b2ba2&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/card-list&#34;,&#34;repo:modifyDate&#34;:&#34;2022-11-11T00:15:31Z&#34;,&#34;dc:title&#34;:&#34;Useful information&#34;}}" class="cmp-card-list">
+    <div>
+        <div class="cmp-card-list__header">
+            <h2 id="card-list-0a367b2ba2" class="cmp-card-list__heading">Useful information</h2>
+
+            
+        </div>
+        <ul class="cmp-card-list__list">
+            <li data-cmp-data-layer="{&#34;card-list-0a367b2ba2-card-c55592b6a3&#34;:{&#34;parentId&#34;:&#34;card-list-0a367b2ba2&#34;,&#34;@type&#34;:&#34;servicesaustralia/components/content/card-list/card&#34;,&#34;repo:modifyDate&#34;:&#34;2022-11-11T00:15:31Z&#34;,&#34;dc:title&#34;:&#34;Proof of your COVID-19 vaccinations&#34;,&#34;dc:description&#34;:&#34;Find out about COVID-19 digital certificate, immunisation history statement or international certificate.&#34;,&#34;xdm:linkURL&#34;:&#34;/content/mygov/en/services/health-and-disability/Coronavirus-COVID-19-vaccinations/get-proof-of-your-COVID-19-vaccination&#34;}}" class="cmp-card-list__item">
+                <a href="/en/services/health-and-disability/Coronavirus-COVID-19-vaccinations/get-proof-of-your-COVID-19-vaccination" data-cmp-clickable aria-labelledby="card-link-1" aria-describedby="card-title-1 card-description-1">
+                    <div class="cmp-card">
+                        <div class="cmp-card__info">
+                            <h3 class="cmp-card__info__title" id='card-title-1'>Proof of your COVID-19 vaccinations</h3>
+                            <p class="cmp-card__info__description" id="card-description-1">Find out about COVID-19 digital certificate, immunisation history statement or international certificate.</p>
+                            <p class="cmp-card__info__cta-text cmp-link" id="card-link-1">Get proof of vaccinations</p>
+                        </div>
+                        <div class="cmp-card__image">
+                            
+                            
+                            
+<div data-cmp-src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82{.width}.jpeg/1664839614518/get-proof-vaccination.jpeg" data-asset-id="554a5ca9-4bb8-404c-94c1-7897a4dfa07e" id="image-a2cce8e1eb" data-cmp-data-layer="{&#34;image-a2cce8e1eb&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/image&#34;,&#34;dc:title&#34;:&#34;Person using mobile phone&#34;,&#34;image&#34;:{&#34;repo:id&#34;:&#34;554a5ca9-4bb8-404c-94c1-7897a4dfa07e&#34;,&#34;repo:modifyDate&#34;:&#34;2022-10-03T23:26:54Z&#34;,&#34;@type&#34;:&#34;image/jpeg&#34;,&#34;repo:path&#34;:&#34;/content/dam/mygov/images/hub/Get-proof-vaccination.jpg&#34;}}}" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.jpeg/1664839614518/get-proof-vaccination.jpeg" srcset="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.359.jpeg/1664839614518/get-proof-vaccination.jpeg 359w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.480.jpeg/1664839614518/get-proof-vaccination.jpeg 480w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.640.jpeg/1664839614518/get-proof-vaccination.jpeg 640w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.768.jpeg/1664839614518/get-proof-vaccination.jpeg 768w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.1024.jpeg/1664839614518/get-proof-vaccination.jpeg 1024w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.1244.jpeg/1664839614518/get-proof-vaccination.jpeg 1244w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item0/image.coreimg.82.1360.jpeg/1664839614518/get-proof-vaccination.jpeg 1360w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1440" height="999" alt="Person using mobile phone" title="Person using mobile phone"/>
+    
+    
+    <meta itemprop="caption" content="Person using mobile phone"/>
+</div>
+
+    
+
+
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li data-cmp-data-layer="{&#34;card-list-0a367b2ba2-card-2a37ccc049&#34;:{&#34;parentId&#34;:&#34;card-list-0a367b2ba2&#34;,&#34;@type&#34;:&#34;servicesaustralia/components/content/card-list/card&#34;,&#34;repo:modifyDate&#34;:&#34;2022-11-11T00:15:31Z&#34;,&#34;dc:title&#34;:&#34;Getting help after a natural disaster&#34;,&#34;dc:description&#34;:&#34;If you’ve been affected by a natural disaster, there’s support and services to help you.&#34;,&#34;xdm:linkURL&#34;:&#34;/content/mygov/en/services/living-arrangements/experiencing-a-natural-disaster/getting-help-after-a-natural-disaster&#34;}}" class="cmp-card-list__item">
+                <a href="/en/services/living-arrangements/experiencing-a-natural-disaster/getting-help-after-a-natural-disaster" data-cmp-clickable aria-labelledby="card-link-2" aria-describedby="card-title-2 card-description-2">
+                    <div class="cmp-card">
+                        <div class="cmp-card__info">
+                            <h3 class="cmp-card__info__title" id='card-title-2'>Getting help after a natural disaster</h3>
+                            <p class="cmp-card__info__description" id="card-description-2">If you’ve been affected by a natural disaster, there’s support and services to help you.</p>
+                            <p class="cmp-card__info__cta-text cmp-link" id="card-link-2">Get help after a natural disaster</p>
+                        </div>
+                        <div class="cmp-card__image">
+                            
+                            
+                            
+<div data-cmp-src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82{.width}.jpeg/1664942025778/impacted-by-bushfires.jpeg" data-asset-id="9e87fd19-31cc-4b3f-afa3-55d2b57706ac" id="image-c4f90965ea" data-cmp-data-layer="{&#34;image-c4f90965ea&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/image&#34;,&#34;dc:title&#34;:&#34;New growth&#34;,&#34;image&#34;:{&#34;repo:id&#34;:&#34;9e87fd19-31cc-4b3f-afa3-55d2b57706ac&#34;,&#34;repo:modifyDate&#34;:&#34;2022-10-05T03:53:45Z&#34;,&#34;@type&#34;:&#34;image/jpeg&#34;,&#34;repo:path&#34;:&#34;/content/dam/mygov/images/stock/Impacted-by-bushfires.jpg&#34;}}}" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.jpeg/1664942025778/impacted-by-bushfires.jpeg" srcset="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.359.jpeg/1664942025778/impacted-by-bushfires.jpeg 359w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.480.jpeg/1664942025778/impacted-by-bushfires.jpeg 480w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.640.jpeg/1664942025778/impacted-by-bushfires.jpeg 640w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.768.jpeg/1664942025778/impacted-by-bushfires.jpeg 768w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.1024.jpeg/1664942025778/impacted-by-bushfires.jpeg 1024w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.1244.jpeg/1664942025778/impacted-by-bushfires.jpeg 1244w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item1/image.coreimg.82.1360.jpeg/1664942025778/impacted-by-bushfires.jpeg 1360w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1440" height="960" alt="New growth after a bushfire" title="New growth"/>
+    
+    
+    <meta itemprop="caption" content="New growth"/>
+</div>
+
+    
+
+
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li data-cmp-data-layer="{&#34;card-list-0a367b2ba2-card-d8410b4699&#34;:{&#34;parentId&#34;:&#34;card-list-0a367b2ba2&#34;,&#34;@type&#34;:&#34;servicesaustralia/components/content/card-list/card&#34;,&#34;repo:modifyDate&#34;:&#34;2022-11-11T00:15:31Z&#34;,&#34;dc:title&#34;:&#34;Impacted by coronavirus (COVID-19)&#34;,&#34;dc:description&#34;:&#34;Find out what support is available when you&#39;re impacted by COVID-19.&#34;,&#34;xdm:linkURL&#34;:&#34;/content/mygov/en/services/health-and-disability/impacted-by-coronavirus-covid-19&#34;}}" class="cmp-card-list__item">
+                <a href="/en/services/health-and-disability/impacted-by-coronavirus-covid-19" data-cmp-clickable aria-labelledby="card-link-3" aria-describedby="card-title-3 card-description-3">
+                    <div class="cmp-card">
+                        <div class="cmp-card__info">
+                            <h3 class="cmp-card__info__title" id='card-title-3'>Impacted by coronavirus (COVID-19)</h3>
+                            <p class="cmp-card__info__description" id="card-description-3">Find out what support is available when you're impacted by COVID-19.</p>
+                            <p class="cmp-card__info__cta-text cmp-link" id="card-link-3">Read more</p>
+                        </div>
+                        <div class="cmp-card__image">
+                            
+                            
+                            
+<div data-cmp-src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82{.width}.jpeg/1664944546727/impacted-by-coronavirus.jpeg" data-asset-id="b1a085d7-27e2-46fc-9a8b-e3c34dc49ec4" id="image-a56a0f61aa" data-cmp-data-layer="{&#34;image-a56a0f61aa&#34;:{&#34;@type&#34;:&#34;servicesaustralia/components/content/image&#34;,&#34;dc:title&#34;:&#34;Person wearing surgical mask&#34;,&#34;image&#34;:{&#34;repo:id&#34;:&#34;b1a085d7-27e2-46fc-9a8b-e3c34dc49ec4&#34;,&#34;repo:modifyDate&#34;:&#34;2022-10-05T04:35:46Z&#34;,&#34;@type&#34;:&#34;image/jpeg&#34;,&#34;repo:path&#34;:&#34;/content/dam/mygov/images/hub/Impacted-by-coronavirus.jpg&#34;}}}" data-cmp-hook-image="imageV3" class="cmp-image" itemscope itemtype="http://schema.org/ImageObject">
+    
+        <img src="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.jpeg/1664944546727/impacted-by-coronavirus.jpeg" srcset="/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.359.jpeg/1664944546727/impacted-by-coronavirus.jpeg 359w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.480.jpeg/1664944546727/impacted-by-coronavirus.jpeg 480w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.640.jpeg/1664944546727/impacted-by-coronavirus.jpeg 640w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.768.jpeg/1664944546727/impacted-by-coronavirus.jpeg 768w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.1024.jpeg/1664944546727/impacted-by-coronavirus.jpeg 1024w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.1244.jpeg/1664944546727/impacted-by-coronavirus.jpeg 1244w,/en/_jcr_content/root/main-container/grey-container/container/card_list/cardItems/item2/image.coreimg.82.1360.jpeg/1664944546727/impacted-by-coronavirus.jpeg 1360w" loading="lazy" class="cmp-image__image" itemprop="contentUrl" width="1440" height="960" alt="People on train wearing surgical masks" title="Person wearing surgical mask"/>
+    
+    
+    <meta itemprop="caption" content="Person wearing surgical mask"/>
+</div>
+
+    
+
+
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+<div class="enhanced-polling aem-GridColumn--xxs--none aem-GridColumn--xl--5 aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--xxs--10 aem-GridColumn--m--10 aem-GridColumn--xs--none aem-GridColumn--offset--default--2 aem-GridColumn--s--10 aem-GridColumn--offset--l--2 aem-GridColumn--offset--xxs--1 aem-GridColumn--s--none aem-GridColumn--offset--xl--2 aem-GridColumn--l--10 aem-GridColumn--l--none aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--xs--10 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--m--none aem-GridColumn--offset--s--1"></div>
+<div class="last-updated aem-GridColumn--offset--xs--1 aem-GridColumn--default--none aem-GridColumn--m--newline aem-GridColumn--xxs--10 aem-GridColumn--m--10 aem-GridColumn--offset--default--0 aem-GridColumn--s--10 aem-GridColumn--xs--newline aem-GridColumn--offset--l--2 aem-GridColumn--l--newline aem-GridColumn--offset--xl--0 aem-GridColumn--offset--xxs--1 aem-GridColumn--l--10 aem-GridColumn aem-GridColumn--xs--10 aem-GridColumn--default--3 aem-GridColumn--xl--3 aem-GridColumn--xl--none aem-GridColumn--offset--m--1 aem-GridColumn--s--newline aem-GridColumn--xxs--newline aem-GridColumn--offset--s--1"></div>
+
+    
+</div>
+
+    </main>
+
+    
+</div>
+<div class="mygovfooter aem-GridColumn aem-GridColumn--default--12">
+<footer data-section="footer" class="cmp-custom-footer">
+  <div class="cmp-custom-footer__content">
+    <div class="cmp-custom-footer__accordion">
+      <button id="footer-accordion-control-1" class="cmp-custom-footer__button" aria-expanded="false" aria-controls="footer-accordion-panel-1">
+        <span class="cmp-custom-footer__button__title">About this site</span>
+        <svg class="cmp-custom-footer__button__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+          <path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/>
+          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+        </svg>
+      </button>
+      <div class="cmp-custom-footer__panel" aria-hidden="true" id="footer-accordion-panel-1">
+        <ul class="cmp-custom-footer__panel__list">
+          <li>
+            <a href="/en/about" tabindex="-1">About myGov</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/help" tabindex="-1">Help using myGov</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/help/contact" tabindex="-1">Contact us</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/feedback" tabindex="-1">Share feedback</a>
+          </li>
+        
+          <li>
+            <a href="/audit" tabindex="-1">myGov user audit</a>
+          </li>
+        </ul>
+      </div>
+      <button id="footer-accordion-control-2" class="cmp-custom-footer__button" aria-expanded="false" aria-controls="footer-accordion-panel-2">
+        <span class="cmp-custom-footer__button__title">Browse</span>
+        <svg class="cmp-custom-footer__button__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+          <path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/>
+          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+        </svg>
+      </button>
+      <div class="cmp-custom-footer__panel" aria-hidden="true" id="footer-accordion-panel-2">
+        <ul class="cmp-custom-footer__panel__list">
+            <li>
+              <a href="/en/services/raising-kids" tabindex="-1">Raising kids</a>
+            </li>
+        
+            <li>
+              <a href="/en/services/living-arrangements" tabindex="-1">Living arrangements</a>
+            </li>
+        
+            <li>
+              <a href="/en/services/ageing" tabindex="-1">Ageing</a>
+            </li>
+        
+            <li>
+              <a href="/en/services/work" tabindex="-1">Work</a>
+            </li>
+        
+            <li>
+              <a href="/en/services/education" tabindex="-1">Education</a>
+            </li>
+        
+            <li>
+              <a href="/en/services/health-and-disability" tabindex="-1">Health and disability</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-custom-footer__columns">
+      <div class="cmp-custom-footer__column">
+        <h2 class="sr-only">Footer column 1</h2>
+        <h3 class="cmp-custom-footer__column__title">About this site</h3>
+        <ul class="cmp-custom-footer__column__list">
+          <li>
+            <a href="/en/about">About myGov</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/help">Help using myGov</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/help/contact">Contact us</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/feedback">Share feedback</a>
+          </li>
+        
+          <li>
+            <a href="/audit">myGov user audit</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cmp-custom-footer__column">
+        <h2 class="sr-only">Footer column 2</h2>
+        <h3 class="cmp-custom-footer__column__title">Browse</h3>
+        <ul class="cmp-custom-footer__column__list">
+          <li>
+            <a href="/en/services/raising-kids">Raising kids</a>
+          </li>
+        
+          <li>
+            <a href="/en/services/living-arrangements">Living arrangements</a>
+          </li>
+        
+          <li>
+            <a href="/en/services/ageing">Ageing</a>
+          </li>
+        
+          <li>
+            <a href="/en/services/work">Work</a>
+          </li>
+        
+          <li>
+            <a href="/en/services/education">Education</a>
+          </li>
+        
+          <li>
+            <a href="/en/services/health-and-disability">Health and disability</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-custom-footer__lower">
+      <div class="cmp-custom-footer__lower__links">
+        <h2 class="sr-only">Support links</h2>
+        <ul class="cmp-custom-footer__lower__list">
+          <li>
+            <a href="/en/about/terms">Terms of use</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/privacy-and-security">Privacy and security</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/copyright">Copyright</a>
+          </li>
+        
+          <li>
+            <a href="/en/about/accessibility"> Accessibility</a>
+          </li>
+        
+          <li>
+            <a href="/en/languages">Languages</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cmp-custom-footer__bottom">
+        <div class="cmp-custom-footer__bottom__logos">
+          <a href="/en"><img src="/content/dam/mygov/images/brand/logos/myGov-logo-cobranded-white.svg" alt="Australian Government and myGov logo"/></a>
+        </div>
+        <div class="cmp-custom-footer__bottom__acknowledgement">
+          <p>We acknowledge the Traditional Custodians of the lands we live on. We pay our respects to all Elders, past and present, of all Aboriginal and Torres Strait Islander nations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+    
+</div>
+
+    </div>
+
+    
+</div>
+
+
+            
+    
+    <script src="/etc.clientlibs/servicesaustralia-fed/clientlibs/imported.min.js"></script>
+
+
+    
+    
+<script src="/etc.clientlibs/servicesaustralia/clientlibs/clientlib-base.min.js"></script>
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+    
+    
+
+        
+    </body>
+</html>
